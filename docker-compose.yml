@@ -16,7 +16,7 @@ services:
       MYSQL_USER: "hetic"
       MYSQL_PASSWORD: "hetic"
 
-  Phpmyadmin:
+  phpmyadmin:
     image: phpmyadmin
     restart: always
     expose:
@@ -27,18 +27,18 @@ services:
       - PMA_HOST=mariadb
       - PMA_PORT=3306
 
-  Wordpress:
+  wordpress:
     image: wordpress
     expose:
     - 80
-    Ports:
+    ports:
     - 80:80
-  environment :
-  WORDPRESS_DB_HOST : mariadb
-  WORDPRESS_DB_NAME : heticdb
-  WORDPRESS_DB_USER : hetic
-  WORDPRESS_DB_PASSWORD : hetic
- volumes :
-  - ./wordpress:/var/www/html
+    environment :
+      WORDPRESS_DB_HOST : mariadb
+      WORDPRESS_DB_NAME : heticdb
+      WORDPRESS_DB_USER : hetic
+      WORDPRESS_DB_PASSWORD : hetic
+    volumes :
+      - ./wordpress:/var/www/html
 
  
